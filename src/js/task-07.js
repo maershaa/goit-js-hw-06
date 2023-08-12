@@ -3,13 +3,20 @@
 const textInput = document.querySelector("#font-size-control");
 const outputText = document.querySelector("#text");
 
-// Здесь вы добавляете обработчик события input для textInput. Событие input срабатывает при изменении значения элемента input, включая ползунок range. Внутри обработчика вы используете textInput.value, чтобы получить текущее значение ползунка, и добавляете "px" к числовому значению, чтобы получить значение в пикселях. Затем вы устанавливаете это значение в качестве значения свойства fontSize элемента outputText.
-textInput.addEventListener("input", (event) => {
+//  мы объявляем именованную функцию handleFontSizeChange. Эта функция будет вызываться каждый раз, когда происходит событие input на ползунке.
+function handleFontSizeChange() {
+  // Внутри функции handleFontSizeChange мы получаем текущее значение ползунка, добавляем к нему строку "px" и устанавливаем это значение как стиль fontSize элемента outputText. Это приводит к изменению размера шрифта текста в элементе в режиме реального времени при перетаскивании ползунка.
   const fontSize = textInput.value + "px"; // добавляем "px" к числовому значению
   outputText.style.fontSize = fontSize;
-});
+}
+
+// Затем мы добавляем обработчик события input для textInput, который будет вызывать функцию handleFontSizeChange при изменении значения ползунка.
+textInput.addEventListener("input", handleFontSizeChange);
 
 console.log(textInput);
 console.log(outputText);
+
+// В конце кода мы вызываем функцию handleFontSizeChange вручную, чтобы установить начальное значение размера шрифта на основе текущего положения ползунка.
+handleFontSizeChange();
 
 // Этот код будет обновлять размер текста в элементе outputText в зависимости от значения ползунка в режиме реального времени при помощи обработчика события input.

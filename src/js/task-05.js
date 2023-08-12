@@ -10,9 +10,16 @@ const output = document.querySelector("#name-output");
 console.log(textInput);
 console.log(output);
 
-// Здесь устанавливается обработчик события "input" для элемента textInput. Событие "input" происходит при изменении значения в поле ввода.
 textInput.addEventListener("input", (event) => {
-  output.textContent = event.currentTarget.value;
+  const trimmedValue = event.currentTarget.value.trim(); // Применяется метод trim() к этому значению, чтобы удалить лишние пробелы в начале и конце строки.
+
+  if (trimmedValue === "") {
+    // Если после применения trim() значение пустое, то в элементе output будет отображаться "Anonymous".
+    output.textContent = "Anonymous";
+  } else {
+    // В противном случае, в элементе output будет отображаться полученное значение (уже без лишних пробелов).
+    output.textContent = trimmedValue;
+  }
 });
 
 // Итак, в результате, когда пользователь вводит текст в поле с идентификатором "name-input", этот текст мгновенно отображается в элементе с идентификатором "name-output". Весь процесс реализован с использованием JavaScript и событий, позволяя динамически обновлять содержимое страницы при взаимодействии пользователя.
