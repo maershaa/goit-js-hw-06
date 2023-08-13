@@ -22,7 +22,7 @@ function handleSubmit(event) {
   const passwordInput = elements.password;
 
   // Здесь вы проверяете, заполнены ли оба поля email и password в форме. Если хотя бы одно из полей пустое, выводится alert с предупреждением.
-  if (emailInput === "" || passwordInput === "") {
+  if (emailInput.value === "" || passwordInput.value === "") {
     alert("Please fill in all the fields!");
   }
   //   Если оба поля заполнены, этот блок будет выполнен.
